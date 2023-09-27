@@ -41,6 +41,10 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.lblPoint = new System.Windows.Forms.Label();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.label4 = new System.Windows.Forms.Label();
+			this.btnDelete = new System.Windows.Forms.Button();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// lbxDisplay
@@ -193,11 +197,45 @@
 			this.lblPoint.AutoSize = true;
 			this.lblPoint.Font = new System.Drawing.Font("Cooper Black", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.lblPoint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.lblPoint.Location = new System.Drawing.Point(1411, 171);
+			this.lblPoint.Location = new System.Drawing.Point(81, 144);
 			this.lblPoint.Name = "lblPoint";
 			this.lblPoint.Size = new System.Drawing.Size(217, 230);
 			this.lblPoint.TabIndex = 15;
 			this.lblPoint.Text = "0";
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
+			this.panel1.Controls.Add(this.label4);
+			this.panel1.Controls.Add(this.lblPoint);
+			this.panel1.Location = new System.Drawing.Point(1339, 116);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(340, 548);
+			this.panel1.TabIndex = 16;
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Cooper Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.label4.Location = new System.Drawing.Point(59, 55);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(239, 46);
+			this.label4.TabIndex = 17;
+			this.label4.Text = "Your score";
+			// 
+			// btnDelete
+			// 
+			this.btnDelete.BackColor = System.Drawing.Color.MediumPurple;
+			this.btnDelete.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+			this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+			this.btnDelete.Location = new System.Drawing.Point(1092, 287);
+			this.btnDelete.Name = "btnDelete";
+			this.btnDelete.Size = new System.Drawing.Size(169, 84);
+			this.btnDelete.TabIndex = 17;
+			this.btnDelete.Text = "Delete Item";
+			this.btnDelete.UseVisualStyleBackColor = false;
+			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
 			// 
 			// ReplaceBook
 			// 
@@ -205,7 +243,8 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.Plum;
 			this.ClientSize = new System.Drawing.Size(1754, 1050);
-			this.Controls.Add(this.lblPoint);
+			this.Controls.Add(this.btnDelete);
+			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -221,6 +260,8 @@
 			this.Name = "ReplaceBook";
 			this.Text = "ReplaceBook";
 			this.Load += new System.EventHandler(this.ReplaceBook_Load);
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -241,5 +282,8 @@
 		private Label label2;
 		private Label label3;
 		private Label lblPoint;
+		private Panel panel1;
+		private Label label4;
+		private Button btnDelete;
 	}
 }

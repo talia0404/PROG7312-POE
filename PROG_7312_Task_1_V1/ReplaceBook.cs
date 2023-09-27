@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace PROG_7312_Task_1_V1
 {
@@ -113,36 +114,62 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnCheckOrder_Click(object sender, EventArgs e)
 		{
-			bool areFirstThreeCharsAscending = AreFirstThreeCharactersInAscendingOrder(lbxSort);
 
-			if (areFirstThreeCharsAscending)
+			if (lbxSort.Items.Count==10) 
 			{
-				PointIncrement();
+
+				bool areFirstThreeCharsAscending = AreFirstThreeCharactersInAscendingOrder(lbxSort);
+
+				if (areFirstThreeCharsAscending)
+				{
+					PointIncrement();
+
+					//Inform user they've gained a point
+					MessageBox.Show("Well done! You've gained a point!");
+
+					// Generate 10 different random Dewey Decimal System call numbers
+					generatedDDS = generateRandomDDSNumbers(10);
+					// Display the generated call numbers in the ListBox
+					lbxDisplay.Items.Clear();
+					lbxDisplay.Items.AddRange(generatedDDS.ToArray());
+
+					//Clear Items in Answer Listbox
+					lbxSort.Items.Clear();
+				}
+
+				else
+				{
+					PointDecrement();
+					MessageBox.Show("Sorry! You've lost a point.");
+				}
 			}
 			else
 			{
-				PointDecrement();
+				MessageBox.Show("Please fill in all numbers.");
 			}
-
 
 		}
 
 		
 
-		
-
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
+			if (tbxReOrder.Text.Length == 9)
+			{
+				// Get the user's input from the TextBox
+				string userInput = tbxReOrder.Text;
 
-			// Get the user's input from the TextBox
-			string userInput = tbxReOrder.Text;
+				// Split the user input into an array of strings
+				string[] userNumbers = userInput.Split(new char[] { '\r', '\n', ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-			// Split the user input into an array of strings
-			string[] userNumbers = userInput.Split(new char[] { '\r', '\n', ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+				lbxSort.Items.AddRange(userNumbers.ToArray());
 
-			lbxSort.Items.AddRange(userNumbers.ToArray());
-
-			tbxReOrder.Text = "";
+				tbxReOrder.Text = "";
+			}
+			else
+			{
+				MessageBox.Show("Please enter 9 characters.");
+			}
 			
 		}
 
@@ -176,6 +203,18 @@ namespace PROG_7312_Task_1_V1
 		private void lblInstruct1_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void btnDelete_Click(object sender, EventArgs e)
+		{
+			if (lbxSort.SelectedIndex != -1) // Check if an item is selected
+			{
+				lbxSort.Items.RemoveAt(lbxSort.SelectedIndex); // Remove the selected item
+			}
+			else
+			{
+				MessageBox.Show("Item not selected.");
+			}
 		}
 	}
 }
