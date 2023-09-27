@@ -15,7 +15,7 @@ namespace PROG_7312_Task_1_V1
 	public partial class ReplaceBook : Form
 	{
 		private List<string> generatedDDS;
-		//private List<string> userOrder;
+		private int point = 0;
 
 
 
@@ -23,7 +23,7 @@ namespace PROG_7312_Task_1_V1
 		{
 			InitializeComponent();
 			generatedDDS = new List<string>();
-		//	userOrder = new List<string>();
+		
 
 
 		}
@@ -36,7 +36,7 @@ namespace PROG_7312_Task_1_V1
 			// Display the generated call numbers in the ListBox
 			lbxDisplay.Items.Clear();
 			lbxDisplay.Items.AddRange(generatedDDS.ToArray());
-			lblInstruct1.Text = "Only add spaces or ',' after each number!";
+			
 
 		}
 
@@ -73,30 +73,61 @@ namespace PROG_7312_Task_1_V1
 			return new string(randomLetters);
 		}
 
-
-		private void btnCheckOrder_Click(object sender, EventArgs e)
+		private bool AreFirstThreeCharactersInAscendingOrder(ListBox listBox)
 		{
-			j
-		}
+			List<string> items = listBox.Items.Cast<string>().ToList();
 
-		private bool CheckOrder(string[] userOrderedNumbers)
-		{
-			// Check if the user's ordering matches the generated numbers
-			if (userOrderedNumbers.Length != generatedDDS.Count)
+			if (items.Count <= 1)
 			{
-				return false;
+				return true; // If there's only one item or none, it's considered in ascending order.
 			}
 
-			for (int i = 0; i < userOrderedNumbers.Length; i++)
+			for (int i = 0; i < items.Count - 1; i++)
 			{
-				if (userOrderedNumbers[i] != generatedDDS[i])
+				string currentItem = items[i].Substring(0, 3); // Get the first 3 characters of the current item
+				string nextItem = items[i + 1].Substring(0, 3); // Get the first 3 characters of the next item
+
+				if (string.Compare(currentItem, nextItem) > 0)
 				{
-					return false;
+					return false; // If any item's first 3 characters are greater than the next one, it's not in ascending order
 				}
 			}
 
-			return true;
+			return true; // All items have first 3 characters in ascending order
 		}
+
+		private void PointIncrement()
+		{
+			// Increment the counter and update the label
+			point++;
+			lblPoint.Text = $"{point}";
+		}
+
+		private void PointDecrement()
+		{
+			// Increment the counter and update the label
+			point--;
+			lblPoint.Text = $"{point}";
+		}
+
+
+		private void btnCheckOrder_Click(object sender, EventArgs e)
+		{
+			bool areFirstThreeCharsAscending = AreFirstThreeCharactersInAscendingOrder(lbxSort);
+
+			if (areFirstThreeCharsAscending)
+			{
+				PointIncrement();
+			}
+			else
+			{
+				PointDecrement();
+			}
+
+
+		}
+
+		
 
 		
 
@@ -111,6 +142,7 @@ namespace PROG_7312_Task_1_V1
 
 			lbxSort.Items.AddRange(userNumbers.ToArray());
 
+			tbxReOrder.Text = "";
 			
 		}
 
@@ -128,6 +160,22 @@ namespace PROG_7312_Task_1_V1
 			// Display the generated call numbers in the ListBox
 			lbxDisplay.Items.Clear();
 			lbxDisplay.Items.AddRange(generatedDDS.ToArray());
+		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			lbxSort.Items.Clear();
+
+		}
+
+		private void btnGenClear_Click(object sender, EventArgs e)
+		{
+			lbxDisplay.Items.Clear();
+		}
+
+		private void lblInstruct1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
