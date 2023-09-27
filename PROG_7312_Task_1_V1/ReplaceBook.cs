@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
-namespace PROG_7312_Task_1_V1
+namespace PROG_7312_Task_1_V1 //ST10083706
 {
 	public partial class ReplaceBook : Form
 	{
@@ -175,7 +175,6 @@ namespace PROG_7312_Task_1_V1
 
 		private void tbxReOrder_TextChanged(object sender, EventArgs e)
 		{
-		//	MessageBox.Show("Only leave spaces an add characters after each number!");
 
 		}
 
@@ -191,12 +190,15 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnClear_Click(object sender, EventArgs e)
 		{
+			//Clear listboxitems
 			lbxSort.Items.Clear();
 
 		}
 
 		private void btnGenClear_Click(object sender, EventArgs e)
 		{
+			//Clear listboxitems
+
 			lbxDisplay.Items.Clear();
 		}
 
@@ -207,6 +209,8 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnDelete_Click(object sender, EventArgs e)
 		{
+			//Delete listboxitems
+
 			if (lbxSort.SelectedIndex != -1) // Check if an item is selected
 			{
 				lbxSort.Items.RemoveAt(lbxSort.SelectedIndex); // Remove the selected item
@@ -218,3 +222,21 @@ namespace PROG_7312_Task_1_V1
 		}
 	}
 }
+
+
+/*
+ Website Name: ChatGPT (2023). ChatGPT. [online] chat.openai.com. 
+Available at: https://chat.openai.com/.
+
+Website Name: Educative. (n.d.). Educative Answers - Trusted Answers to Developer Questions. [online] 
+Available at: https://www.educative.io/answers/how-to-generate-random-numbers-in-c-sharp [Accessed 27 Sep. 2023].
+
+Website Name:www.tutorialsteacher.com. (n.d.). C# List Collection. [online] 
+Available at: https://www.tutorialsteacher.com/csharp/csharp-list.
+
+Website Name:‌‌GeeksforGeeks. (2019). How to sort a list in C# | List.Sort() Method Set -1. [online] 
+Available at: https://www.geeksforgeeks.org/how-to-sort-list-in-c-sharp-set-1/#:~:text=List. [Accessed 27 Sep. 2023].
+
+‌
+ 
+ */
