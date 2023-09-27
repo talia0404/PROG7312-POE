@@ -15,7 +15,7 @@ namespace PROG_7312_Task_1_V1
 	public partial class ReplaceBook : Form
 	{
 		private List<string> generatedDDS;
-		private List<string> userOrder;
+		//private List<string> userOrder;
 
 
 
@@ -23,7 +23,7 @@ namespace PROG_7312_Task_1_V1
 		{
 			InitializeComponent();
 			generatedDDS = new List<string>();
-			userOrder = new List<string>();
+		//	userOrder = new List<string>();
 
 
 		}
@@ -36,6 +36,8 @@ namespace PROG_7312_Task_1_V1
 			// Display the generated call numbers in the ListBox
 			lbxDisplay.Items.Clear();
 			lbxDisplay.Items.AddRange(generatedDDS.ToArray());
+			lblInstruct1.Text = "Only add spaces or ',' after each number!";
+
 		}
 
 		private List<string> generateRandomDDSNumbers(int count)
@@ -71,32 +73,61 @@ namespace PROG_7312_Task_1_V1
 			return new string(randomLetters);
 		}
 
-		
 
 		private void btnCheckOrder_Click(object sender, EventArgs e)
 		{
-			// Check if the user's ordering matches the ordered numbers
-			bool isOrderCorrect = generatedDDS.SequenceEqual(userOrder);
-
-			// Display the result to the user
-			if (isOrderCorrect)
-			{
-				lblResult.Text = "Order is correct!";
-			}
-			else
-			{
-				lblResult.Text = "Order is incorrect!";
-			}
+			j
 		}
 
-		private void btnOrder_Click(object sender, EventArgs e)
+		private bool CheckOrder(string[] userOrderedNumbers)
 		{
-			userOrder = generatedDDS.OrderBy(num => num).ToList();
+			// Check if the user's ordering matches the generated numbers
+			if (userOrderedNumbers.Length != generatedDDS.Count)
+			{
+				return false;
+			}
 
-			// Display the ordered numbers in the ListBox
-			lbxSort.Items.Clear();
-			lbxSort.Items.AddRange(userOrder.ToArray());
+			for (int i = 0; i < userOrderedNumbers.Length; i++)
+			{
+				if (userOrderedNumbers[i] != generatedDDS[i])
+				{
+					return false;
+				}
+			}
 
+			return true;
+		}
+
+		
+
+		private void btnAdd_Click(object sender, EventArgs e)
+		{
+
+			// Get the user's input from the TextBox
+			string userInput = tbxReOrder.Text;
+
+			// Split the user input into an array of strings
+			string[] userNumbers = userInput.Split(new char[] { '\r', '\n', ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+			lbxSort.Items.AddRange(userNumbers.ToArray());
+
+			
+		}
+
+		private void tbxReOrder_TextChanged(object sender, EventArgs e)
+		{
+		//	MessageBox.Show("Only leave spaces an add characters after each number!");
+
+		}
+
+		private void btnRegen_Click(object sender, EventArgs e)
+		{
+			// Generate 10 different random Dewey Decimal System call numbers
+			generatedDDS = generateRandomDDSNumbers(10);
+
+			// Display the generated call numbers in the ListBox
+			lbxDisplay.Items.Clear();
+			lbxDisplay.Items.AddRange(generatedDDS.ToArray());
 		}
 	}
 }
