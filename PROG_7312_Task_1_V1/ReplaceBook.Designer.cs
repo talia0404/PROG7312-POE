@@ -28,262 +28,143 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lbxDisplay = new System.Windows.Forms.ListBox();
-			this.tbxReOrder = new System.Windows.Forms.TextBox();
-			this.btnCheckOrder = new System.Windows.Forms.Button();
-			this.lbxSort = new System.Windows.Forms.ListBox();
-			this.btnAdd = new System.Windows.Forms.Button();
-			this.btnRegen = new System.Windows.Forms.Button();
-			this.lblInstruct1 = new System.Windows.Forms.Label();
-			this.btnClear = new System.Windows.Forms.Button();
-			this.btnGenClear = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.lblPoint = new System.Windows.Forms.Label();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.label4 = new System.Windows.Forms.Label();
-			this.btnDelete = new System.Windows.Forms.Button();
-			this.panel1.SuspendLayout();
-			this.SuspendLayout();
+			lbxDisplay = new ListBox();
+			btnCheckOrder = new Button();
+			btnRegen = new Button();
+			lblPoint = new Label();
+			panel1 = new Panel();
+			label4 = new Label();
+			lblHeader = new Label();
+			lblHeader2 = new Label();
+			panel1.SuspendLayout();
+			SuspendLayout();
 			// 
 			// lbxDisplay
 			// 
-			this.lbxDisplay.BackColor = System.Drawing.Color.Salmon;
-			this.lbxDisplay.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.lbxDisplay.ForeColor = System.Drawing.SystemColors.Window;
-			this.lbxDisplay.FormattingEnabled = true;
-			this.lbxDisplay.ItemHeight = 29;
-			this.lbxDisplay.Location = new System.Drawing.Point(226, 154);
-			this.lbxDisplay.Name = "lbxDisplay";
-			this.lbxDisplay.Size = new System.Drawing.Size(447, 323);
-			this.lbxDisplay.TabIndex = 0;
-			// 
-			// tbxReOrder
-			// 
-			this.tbxReOrder.BackColor = System.Drawing.Color.Khaki;
-			this.tbxReOrder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.tbxReOrder.ForeColor = System.Drawing.Color.Black;
-			this.tbxReOrder.Location = new System.Drawing.Point(226, 608);
-			this.tbxReOrder.Name = "tbxReOrder";
-			this.tbxReOrder.Size = new System.Drawing.Size(457, 35);
-			this.tbxReOrder.TabIndex = 2;
-			this.tbxReOrder.TextChanged += new System.EventHandler(this.tbxReOrder_TextChanged);
+			lbxDisplay.BackColor = Color.Salmon;
+			lbxDisplay.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			lbxDisplay.ForeColor = SystemColors.Window;
+			lbxDisplay.FormattingEnabled = true;
+			lbxDisplay.ItemHeight = 29;
+			lbxDisplay.Location = new Point(122, 317);
+			lbxDisplay.Name = "lbxDisplay";
+			lbxDisplay.Size = new Size(853, 323);
+			lbxDisplay.TabIndex = 0;
 			// 
 			// btnCheckOrder
 			// 
-			this.btnCheckOrder.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnCheckOrder.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnCheckOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnCheckOrder.Location = new System.Drawing.Point(898, 694);
-			this.btnCheckOrder.Name = "btnCheckOrder";
-			this.btnCheckOrder.Size = new System.Drawing.Size(264, 152);
-			this.btnCheckOrder.TabIndex = 3;
-			this.btnCheckOrder.Text = "Check Order";
-			this.btnCheckOrder.UseVisualStyleBackColor = false;
-			this.btnCheckOrder.Click += new System.EventHandler(this.btnCheckOrder_Click);
-			// 
-			// lbxSort
-			// 
-			this.lbxSort.BackColor = System.Drawing.Color.Salmon;
-			this.lbxSort.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.lbxSort.ForeColor = System.Drawing.SystemColors.Window;
-			this.lbxSort.FormattingEnabled = true;
-			this.lbxSort.ItemHeight = 29;
-			this.lbxSort.Location = new System.Drawing.Point(814, 154);
-			this.lbxSort.Name = "lbxSort";
-			this.lbxSort.Size = new System.Drawing.Size(447, 323);
-			this.lbxSort.TabIndex = 5;
-			// 
-			// btnAdd
-			// 
-			this.btnAdd.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnAdd.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnAdd.Location = new System.Drawing.Point(304, 694);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(264, 152);
-			this.btnAdd.TabIndex = 7;
-			this.btnAdd.Text = "Add To List";
-			this.btnAdd.UseVisualStyleBackColor = false;
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+			btnCheckOrder.BackColor = Color.MediumPurple;
+			btnCheckOrder.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnCheckOrder.ForeColor = SystemColors.ButtonHighlight;
+			btnCheckOrder.Location = new Point(414, 694);
+			btnCheckOrder.Name = "btnCheckOrder";
+			btnCheckOrder.Size = new Size(264, 152);
+			btnCheckOrder.TabIndex = 3;
+			btnCheckOrder.Text = "Check Order";
+			btnCheckOrder.UseVisualStyleBackColor = false;
+			btnCheckOrder.Click += btnCheckOrder_Click;
 			// 
 			// btnRegen
 			// 
-			this.btnRegen.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnRegen.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnRegen.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnRegen.Location = new System.Drawing.Point(504, 296);
-			this.btnRegen.Name = "btnRegen";
-			this.btnRegen.Size = new System.Drawing.Size(169, 100);
-			this.btnRegen.TabIndex = 8;
-			this.btnRegen.Text = "Regenerate Numbers";
-			this.btnRegen.UseVisualStyleBackColor = false;
-			this.btnRegen.Click += new System.EventHandler(this.btnRegen_Click);
-			// 
-			// lblInstruct1
-			// 
-			this.lblInstruct1.AutoSize = true;
-			this.lblInstruct1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.lblInstruct1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.lblInstruct1.Location = new System.Drawing.Point(209, 556);
-			this.lblInstruct1.Name = "lblInstruct1";
-			this.lblInstruct1.Size = new System.Drawing.Size(501, 27);
-			this.lblInstruct1.TabIndex = 9;
-			this.lblInstruct1.Text = "Only add spaces or \',\' after each number!";
-			this.lblInstruct1.Click += new System.EventHandler(this.lblInstruct1_Click);
-			// 
-			// btnClear
-			// 
-			this.btnClear.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnClear.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnClear.Location = new System.Drawing.Point(1092, 393);
-			this.btnClear.Name = "btnClear";
-			this.btnClear.Size = new System.Drawing.Size(169, 84);
-			this.btnClear.TabIndex = 10;
-			this.btnClear.Text = "Clear";
-			this.btnClear.UseVisualStyleBackColor = false;
-			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-			// 
-			// btnGenClear
-			// 
-			this.btnGenClear.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnGenClear.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnGenClear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnGenClear.Location = new System.Drawing.Point(504, 393);
-			this.btnGenClear.Name = "btnGenClear";
-			this.btnGenClear.Size = new System.Drawing.Size(169, 84);
-			this.btnGenClear.TabIndex = 11;
-			this.btnGenClear.Text = "Clear";
-			this.btnGenClear.UseVisualStyleBackColor = false;
-			this.btnGenClear.Click += new System.EventHandler(this.btnGenClear_Click);
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Cooper Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label1.Location = new System.Drawing.Point(249, 28);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(406, 46);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Order the numbers";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Cooper Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label2.Location = new System.Drawing.Point(235, 87);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(438, 46);
-			this.label2.TabIndex = 13;
-			this.label2.Text = "into ascending order";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Cooper Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label3.Location = new System.Drawing.Point(861, 87);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(340, 46);
-			this.label3.TabIndex = 14;
-			this.label3.Text = "Your sorted list";
+			btnRegen.BackColor = Color.MediumPurple;
+			btnRegen.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnRegen.ForeColor = SystemColors.ButtonHighlight;
+			btnRegen.Location = new Point(455, 890);
+			btnRegen.Name = "btnRegen";
+			btnRegen.Size = new Size(169, 100);
+			btnRegen.TabIndex = 8;
+			btnRegen.Text = "Regenerate Numbers";
+			btnRegen.UseVisualStyleBackColor = false;
+			btnRegen.Click += btnRegen_Click;
 			// 
 			// lblPoint
 			// 
-			this.lblPoint.AutoSize = true;
-			this.lblPoint.Font = new System.Drawing.Font("Cooper Black", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.lblPoint.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.lblPoint.Location = new System.Drawing.Point(81, 144);
-			this.lblPoint.Name = "lblPoint";
-			this.lblPoint.Size = new System.Drawing.Size(217, 230);
-			this.lblPoint.TabIndex = 15;
-			this.lblPoint.Text = "0";
+			lblPoint.AutoSize = true;
+			lblPoint.Font = new Font("Cooper Black", 100F, FontStyle.Regular, GraphicsUnit.Point);
+			lblPoint.ForeColor = SystemColors.ButtonHighlight;
+			lblPoint.Location = new Point(125, 196);
+			lblPoint.Name = "lblPoint";
+			lblPoint.Size = new Size(217, 230);
+			lblPoint.TabIndex = 15;
+			lblPoint.Text = "0";
 			// 
 			// panel1
 			// 
-			this.panel1.BackColor = System.Drawing.Color.PaleTurquoise;
-			this.panel1.Controls.Add(this.label4);
-			this.panel1.Controls.Add(this.lblPoint);
-			this.panel1.Location = new System.Drawing.Point(1339, 116);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(340, 548);
-			this.panel1.TabIndex = 16;
+			panel1.BackColor = Color.PaleTurquoise;
+			panel1.Controls.Add(label4);
+			panel1.Controls.Add(lblPoint);
+			panel1.Location = new Point(1362, 237);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(441, 548);
+			panel1.TabIndex = 16;
 			// 
 			// label4
 			// 
-			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Cooper Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-			this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.label4.Location = new System.Drawing.Point(59, 55);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(239, 46);
-			this.label4.TabIndex = 17;
-			this.label4.Text = "Your score";
+			label4.AutoSize = true;
+			label4.Font = new Font("Cooper Black", 20F, FontStyle.Regular, GraphicsUnit.Point);
+			label4.ForeColor = SystemColors.ButtonHighlight;
+			label4.Location = new Point(103, 91);
+			label4.Name = "label4";
+			label4.Size = new Size(239, 46);
+			label4.TabIndex = 17;
+			label4.Text = "Your score";
 			// 
-			// btnDelete
+			// lblHeader
 			// 
-			this.btnDelete.BackColor = System.Drawing.Color.MediumPurple;
-			this.btnDelete.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-			this.btnDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-			this.btnDelete.Location = new System.Drawing.Point(1092, 287);
-			this.btnDelete.Name = "btnDelete";
-			this.btnDelete.Size = new System.Drawing.Size(169, 84);
-			this.btnDelete.TabIndex = 17;
-			this.btnDelete.Text = "Delete Item";
-			this.btnDelete.UseVisualStyleBackColor = false;
-			this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+			lblHeader.AutoSize = true;
+			lblHeader.Font = new Font("Cooper Black", 36F, FontStyle.Regular, GraphicsUnit.Point);
+			lblHeader.ForeColor = SystemColors.ButtonHighlight;
+			lblHeader.ImageAlign = ContentAlignment.MiddleLeft;
+			lblHeader.Location = new Point(122, 61);
+			lblHeader.Name = "lblHeader";
+			lblHeader.Size = new Size(898, 82);
+			lblHeader.TabIndex = 12;
+			lblHeader.Text = "Order the numbers into";
+			// 
+			// lblHeader2
+			// 
+			lblHeader2.AutoSize = true;
+			lblHeader2.Font = new Font("Cooper Black", 36F, FontStyle.Regular, GraphicsUnit.Point);
+			lblHeader2.ForeColor = SystemColors.ButtonHighlight;
+			lblHeader2.ImageAlign = ContentAlignment.MiddleLeft;
+			lblHeader2.Location = new Point(221, 190);
+			lblHeader2.Name = "lblHeader2";
+			lblHeader2.Size = new Size(641, 82);
+			lblHeader2.TabIndex = 17;
+			lblHeader2.Text = "ascending order!";
 			// 
 			// ReplaceBook
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.Plum;
-			this.ClientSize = new System.Drawing.Size(1754, 1050);
-			this.Controls.Add(this.btnDelete);
-			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnGenClear);
-			this.Controls.Add(this.btnClear);
-			this.Controls.Add(this.lblInstruct1);
-			this.Controls.Add(this.btnRegen);
-			this.Controls.Add(this.btnAdd);
-			this.Controls.Add(this.lbxSort);
-			this.Controls.Add(this.btnCheckOrder);
-			this.Controls.Add(this.tbxReOrder);
-			this.Controls.Add(this.lbxDisplay);
-			this.Name = "ReplaceBook";
-			this.Text = "ReplaceBook";
-			this.Load += new System.EventHandler(this.ReplaceBook_Load);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.ResumeLayout(false);
-			this.PerformLayout();
-
+			AutoScaleDimensions = new SizeF(10F, 25F);
+			AutoScaleMode = AutoScaleMode.Font;
+			BackColor = Color.Plum;
+			ClientSize = new Size(1924, 1050);
+			Controls.Add(lblHeader2);
+			Controls.Add(panel1);
+			Controls.Add(lblHeader);
+			Controls.Add(btnRegen);
+			Controls.Add(btnCheckOrder);
+			Controls.Add(lbxDisplay);
+			Name = "ReplaceBook";
+			Text = "ReplaceBook";
+			Load += ReplaceBook_Load;
+			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
+			ResumeLayout(false);
+			PerformLayout();
 		}
 
 		#endregion
 
 		private ListBox lbxDisplay;
-		private TextBox tbxReOrder;
 		private Button btnCheckOrder;
-		private ListBox lbxSort;
-		private Button btnAdd;
 		private Button btnRegen;
-		private Label lblInstruct1;
-		private Button btnClear;
-		private Button btnGenClear;
-		private Label label1;
-		private Label label2;
-		private Label label3;
+		//=======
+		private Label lblHeader;
+		private Label lblHeader2;
+		//>>>>>>> Stashed changes
 		private Label lblPoint;
-		private Panel panel1;
 		private Label label4;
-		private Button btnDelete;
+		private Panel panel1;
 	}
 }

@@ -9,7 +9,6 @@ namespace PROG_7312_Task_1_V1
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
-			btnIdentify.Enabled = false;
 			btnNumbers.Enabled = false;
 		}
 
