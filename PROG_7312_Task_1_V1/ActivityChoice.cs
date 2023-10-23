@@ -14,15 +14,20 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnReplace_Click(object sender, EventArgs e)
 		{
-			ReplaceBook form2 = new ReplaceBook(); // Replace "Form2" with the actual name of your target form
+			ReplaceBook form2 = new ReplaceBook(); 
 
-			// Show the new form
 			form2.Show();
 
-			// Optionally, hide the current form if you want to close it
 			//this.Hide();
+		}
 
+		private void btnIdentify_Click(object sender, EventArgs e)
+		{
+			IdentifyArea form3 = new IdentifyArea(); 
 
+			form3.Show();
+
+			//this.Hide();
 		}
 	}
 }

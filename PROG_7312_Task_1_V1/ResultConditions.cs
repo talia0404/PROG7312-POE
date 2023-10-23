@@ -1,28 +1,21 @@
-﻿using PROG_7312_Task_1_V1;
-using System;
-using System.Windows.Forms;
-
-public static class ResultConditions
+﻿public static class ResultConditions
 {
-	public static void PerformSortingAndCheck(ListBox lbxDisplay, Label lblPoint, Label lblHeader, Label lblHeader2)
+	public static void PointInc(Label label)
 	{
-		// Check if the list is sorted in ascending order
-		bool isSorted = CheckSorting.SortCheck(lbxDisplay);
-
-		// Update the label based on whether the list is sorted
-		if (isSorted)
-		{
-			CheckSorting.PointInc(lblPoint);
-			HandleSortingSuccess(lbxDisplay, lblHeader, lblHeader2);
-		}
-		else
-		{
-			CheckSorting.PointDec(lblPoint);
-			HandleSortingFailure(lbxDisplay, lblHeader, lblHeader2);
-		}
+		int currentValue = int.Parse(label.Text);
+		currentValue++;
+		label.Text = currentValue.ToString();
 	}
 
-	private static void HandleSortingSuccess(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
+	public static void PointDec(Label label)
+	{
+		int currentValue = int.Parse(label.Text);
+		currentValue--;
+		label.Text = currentValue.ToString();
+	}
+
+
+	public static void HandleSortingSuccess(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
 	{
 		if (lbxDisplay.Items.Count > 0)
 		{
@@ -33,6 +26,7 @@ public static class ResultConditions
 			if (result == DialogResult.Yes)
 			{
 				lblHeader.Text = "Order the numbers into";
+				lblHeader2.Visible = true;
 				lblHeader2.Text = "ascending order:";
 
 				// Generate 10 different random Dewey Decimal System call numbers
@@ -54,7 +48,7 @@ public static class ResultConditions
 		}
 	}
 
-	private static void HandleSortingFailure(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
+	public static void HandleSortingFailure(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
 	{
 		if (lbxDisplay.Items.Count > 0)
 		{
@@ -64,6 +58,7 @@ public static class ResultConditions
 			if (result == DialogResult.Yes)
 			{
 				lblHeader.Text = "Order the numbers into";
+				lblHeader2.Visible = true;
 				lblHeader2.Text = "ascending order:";
 
 				// Generate 10 different random Dewey Decimal System call numbers
@@ -91,7 +86,7 @@ public static class ResultConditions
 		}
 	}
 
-	private static void HandleExitRequest(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
+	public static void HandleExitRequest(ListBox lbxDisplay, Label lblHeader, Label lblHeader2)
 	{
 		DialogResult result = MessageBox.Show("Would you like to close the app?",
 			"Sorted", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -99,7 +94,8 @@ public static class ResultConditions
 		if (result == DialogResult.Yes)
 		{
 			Application.Exit();
-		}else
+		}
+		else
 		{
 			lblHeader.Text = "Order the numbers into";
 			lblHeader2.Text = "ascending order:";

@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
 namespace PROG_7312_Task_1_V1 //ST10083706
 {
 	public partial class ReplaceBook : Form
@@ -44,7 +40,7 @@ namespace PROG_7312_Task_1_V1 //ST10083706
 
 		private void btnCheckOrder_Click(object sender, EventArgs e)
 		{
-			ResultConditions.PerformSortingAndCheck(lbxDisplay, lblPoint, lblHeader, lblHeader2);
+			CheckSorting.PerformCheck(lbxDisplay, lblPoint, lblHeader, lblHeader2);
 		}
 	}
 }
