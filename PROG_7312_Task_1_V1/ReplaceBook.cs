@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace PROG_7312_Task_1_V1 //ST10083706
 {
 	public partial class ReplaceBook : Form
@@ -41,6 +43,24 @@ namespace PROG_7312_Task_1_V1 //ST10083706
 		private void btnCheckOrder_Click(object sender, EventArgs e)
 		{
 			CheckSorting.PerformCheck(lbxDisplay, lblPoint, lblHeader, lblHeader2);
+		}
+
+		private void btnBack_Click(object sender, EventArgs e)
+		{
+			PROG7312_V1 choiceForm = new PROG7312_V1();
+
+			choiceForm.Show();
+
+			this.Close();
+		}
+
+		private void btnIdentifyAreas_Click(object sender, EventArgs e)
+		{
+			IdentifyArea areaForm = new IdentifyArea();
+
+			areaForm.Show();
+
+			this.Close();
 		}
 	}
 }

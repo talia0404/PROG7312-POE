@@ -36,19 +36,21 @@
 			label4 = new Label();
 			lblHeader = new Label();
 			lblHeader2 = new Label();
+			btnBack = new Button();
+			btnIdentifyAreas = new Button();
 			panel1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// lbxDisplay
 			// 
 			lbxDisplay.BackColor = Color.Salmon;
-			lbxDisplay.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+			lbxDisplay.Font = new Font("Arial", 18F, FontStyle.Bold, GraphicsUnit.Point);
 			lbxDisplay.ForeColor = SystemColors.Window;
 			lbxDisplay.FormattingEnabled = true;
-			lbxDisplay.ItemHeight = 29;
+			lbxDisplay.ItemHeight = 43;
 			lbxDisplay.Location = new Point(122, 317);
 			lbxDisplay.Name = "lbxDisplay";
-			lbxDisplay.Size = new Size(853, 323);
+			lbxDisplay.Size = new Size(556, 434);
 			lbxDisplay.TabIndex = 0;
 			// 
 			// btnCheckOrder
@@ -56,7 +58,7 @@
 			btnCheckOrder.BackColor = Color.MediumPurple;
 			btnCheckOrder.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnCheckOrder.ForeColor = SystemColors.ButtonHighlight;
-			btnCheckOrder.Location = new Point(414, 694);
+			btnCheckOrder.Location = new Point(756, 364);
 			btnCheckOrder.Name = "btnCheckOrder";
 			btnCheckOrder.Size = new Size(264, 152);
 			btnCheckOrder.TabIndex = 3;
@@ -69,7 +71,7 @@
 			btnRegen.BackColor = Color.MediumPurple;
 			btnRegen.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnRegen.ForeColor = SystemColors.ButtonHighlight;
-			btnRegen.Location = new Point(455, 890);
+			btnRegen.Location = new Point(797, 574);
 			btnRegen.Name = "btnRegen";
 			btnRegen.Size = new Size(169, 100);
 			btnRegen.TabIndex = 8;
@@ -93,7 +95,7 @@
 			panel1.BackColor = Color.PaleTurquoise;
 			panel1.Controls.Add(label4);
 			panel1.Controls.Add(lblPoint);
-			panel1.Location = new Point(1362, 237);
+			panel1.Location = new Point(1230, 270);
 			panel1.Name = "panel1";
 			panel1.Size = new Size(441, 548);
 			panel1.TabIndex = 16;
@@ -133,12 +135,40 @@
 			lblHeader2.TabIndex = 17;
 			lblHeader2.Text = "ascending order!";
 			// 
+			// btnBack
+			// 
+			btnBack.BackColor = Color.Indigo;
+			btnBack.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnBack.ForeColor = SystemColors.ButtonHighlight;
+			btnBack.Location = new Point(1230, 843);
+			btnBack.Name = "btnBack";
+			btnBack.Size = new Size(169, 100);
+			btnBack.TabIndex = 18;
+			btnBack.Text = "Back";
+			btnBack.UseVisualStyleBackColor = false;
+			btnBack.Click += btnBack_Click;
+			// 
+			// btnIdentifyAreas
+			// 
+			btnIdentifyAreas.BackColor = Color.Indigo;
+			btnIdentifyAreas.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnIdentifyAreas.ForeColor = SystemColors.ButtonHighlight;
+			btnIdentifyAreas.Location = new Point(1479, 843);
+			btnIdentifyAreas.Name = "btnIdentifyAreas";
+			btnIdentifyAreas.Size = new Size(169, 100);
+			btnIdentifyAreas.TabIndex = 19;
+			btnIdentifyAreas.Text = "Go to Identify Area Game";
+			btnIdentifyAreas.UseVisualStyleBackColor = false;
+			btnIdentifyAreas.Click += btnIdentifyAreas_Click;
+			// 
 			// ReplaceBook
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.Plum;
-			ClientSize = new Size(1924, 1050);
+			ClientSize = new Size(1767, 972);
+			Controls.Add(btnIdentifyAreas);
+			Controls.Add(btnBack);
 			Controls.Add(lblHeader2);
 			Controls.Add(panel1);
 			Controls.Add(lblHeader);
@@ -166,5 +196,7 @@
 		private Label lblPoint;
 		private Label label4;
 		private Panel panel1;
+		private Button btnBack;
+		private Button btnIdentifyAreas;
 	}
 }

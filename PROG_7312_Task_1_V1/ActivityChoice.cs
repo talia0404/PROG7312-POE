@@ -1,3 +1,5 @@
+using System;
+
 namespace PROG_7312_Task_1_V1
 {
 	public partial class PROG7312_V1 : Form
@@ -18,7 +20,7 @@ namespace PROG_7312_Task_1_V1
 
 			form2.Show();
 
-			//this.Hide();
+			this.Hide();
 		}
 
 		private void btnIdentify_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace PROG_7312_Task_1_V1
 
 			form3.Show();
 
-			//this.Hide();
+			this.Hide();
 		}
 	}
 }
