@@ -28,18 +28,24 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			components = new System.ComponentModel.Container();
 			lblHeader = new Label();
-			dataGridViewColumnA = new DataGridView();
-			Column1 = new DataGridViewTextBoxColumn();
-			dataGridViewColumnB = new DataGridView();
-			Column2 = new DataGridViewTextBoxColumn();
-			btnCheckOrder = new Button();
+			dvgKey = new DataGridView();
+			dvgValues = new DataGridView();
+			btnMatch = new Button();
 			lblPoint = new Label();
 			label4 = new Label();
 			btnIdentifyAreas = new Button();
 			btnBack = new Button();
-			((System.ComponentModel.ISupportInitialize)dataGridViewColumnA).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridViewColumnB).BeginInit();
+			btnNewGame = new Button();
+			timer1 = new System.Windows.Forms.Timer(components);
+			panel1 = new Panel();
+			panel2 = new Panel();
+			lblAnswers = new Label();
+			((System.ComponentModel.ISupportInitialize)dvgKey).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dvgValues).BeginInit();
+			panel1.SuspendLayout();
+			panel2.SuspendLayout();
 			SuspendLayout();
 			// 
 			// lblHeader
@@ -48,74 +54,60 @@
 			lblHeader.Font = new Font("Cooper Black", 36F, FontStyle.Regular, GraphicsUnit.Point);
 			lblHeader.ForeColor = SystemColors.ButtonHighlight;
 			lblHeader.ImageAlign = ContentAlignment.MiddleLeft;
-			lblHeader.Location = new Point(581, 43);
+			lblHeader.Location = new Point(582, 42);
 			lblHeader.Name = "lblHeader";
 			lblHeader.Size = new Size(759, 82);
 			lblHeader.TabIndex = 13;
 			lblHeader.Text = "Match the Colunms!";
 			// 
-			// dataGridViewColumnA
+			// dvgKey
 			// 
-			dataGridViewColumnA.AllowUserToAddRows = false;
-			dataGridViewColumnA.BackgroundColor = Color.LemonChiffon;
-			dataGridViewColumnA.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewColumnA.Columns.AddRange(new DataGridViewColumn[] { Column1 });
-			dataGridViewColumnA.Location = new Point(166, 230);
-			dataGridViewColumnA.Name = "dataGridViewColumnA";
-			dataGridViewColumnA.RowHeadersWidth = 62;
-			dataGridViewColumnA.RowTemplate.Height = 33;
-			dataGridViewColumnA.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dataGridViewColumnA.Size = new Size(360, 225);
-			dataGridViewColumnA.TabIndex = 14;
+			dvgKey.AllowUserToAddRows = false;
+			dvgKey.BackgroundColor = Color.LemonChiffon;
+			dvgKey.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dvgKey.GridColor = Color.LemonChiffon;
+			dvgKey.Location = new Point(64, 49);
+			dvgKey.Name = "dvgKey";
+			dvgKey.RowHeadersWidth = 62;
+			dvgKey.RowTemplate.Height = 33;
+			dvgKey.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dvgKey.Size = new Size(360, 225);
+			dvgKey.TabIndex = 14;
 			// 
-			// Column1
+			// dvgValues
 			// 
-			Column1.HeaderText = "Column1";
-			Column1.MinimumWidth = 8;
-			Column1.Name = "Column1";
-			Column1.ReadOnly = true;
-			Column1.Width = 150;
+			dvgValues.AllowUserToAddRows = false;
+			dvgValues.BackgroundColor = Color.MediumAquamarine;
+			dvgValues.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dvgValues.GridColor = Color.MediumSeaGreen;
+			dvgValues.Location = new Point(64, 280);
+			dvgValues.Name = "dvgValues";
+			dvgValues.RowHeadersWidth = 62;
+			dvgValues.RowTemplate.Height = 33;
+			dvgValues.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+			dvgValues.Size = new Size(360, 377);
+			dvgValues.TabIndex = 15;
 			// 
-			// dataGridViewColumnB
+			// btnMatch
 			// 
-			dataGridViewColumnB.AllowUserToAddRows = false;
-			dataGridViewColumnB.BackgroundColor = Color.MediumAquamarine;
-			dataGridViewColumnB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewColumnB.Columns.AddRange(new DataGridViewColumn[] { Column2 });
-			dataGridViewColumnB.Location = new Point(647, 230);
-			dataGridViewColumnB.Name = "dataGridViewColumnB";
-			dataGridViewColumnB.RowHeadersWidth = 62;
-			dataGridViewColumnB.RowTemplate.Height = 33;
-			dataGridViewColumnB.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			dataGridViewColumnB.Size = new Size(360, 377);
-			dataGridViewColumnB.TabIndex = 15;
-			// 
-			// Column2
-			// 
-			Column2.HeaderText = "Column2";
-			Column2.MinimumWidth = 8;
-			Column2.Name = "Column2";
-			Column2.ReadOnly = true;
-			Column2.Width = 150;
-			// 
-			// btnCheckOrder
-			// 
-			btnCheckOrder.BackColor = Color.MidnightBlue;
-			btnCheckOrder.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
-			btnCheckOrder.ForeColor = SystemColors.ButtonFace;
-			btnCheckOrder.Location = new Point(454, 652);
-			btnCheckOrder.Name = "btnCheckOrder";
-			btnCheckOrder.Size = new Size(264, 152);
-			btnCheckOrder.TabIndex = 16;
-			btnCheckOrder.Text = "Check Order";
-			btnCheckOrder.UseVisualStyleBackColor = false;
+			btnMatch.BackColor = Color.MidnightBlue;
+			btnMatch.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnMatch.ForeColor = SystemColors.ButtonFace;
+			btnMatch.Location = new Point(523, 505);
+			btnMatch.Name = "btnMatch";
+			btnMatch.Size = new Size(264, 152);
+			btnMatch.TabIndex = 16;
+			btnMatch.Text = "Match";
+			btnMatch.UseVisualStyleBackColor = false;
+			btnMatch.Click += btnMatch_Click;
 			// 
 			// lblPoint
 			// 
 			lblPoint.AutoSize = true;
+			lblPoint.BackColor = Color.Orange;
 			lblPoint.Font = new Font("Cooper Black", 100F, FontStyle.Regular, GraphicsUnit.Point);
 			lblPoint.ForeColor = SystemColors.ButtonHighlight;
-			lblPoint.Location = new Point(1425, 343);
+			lblPoint.Location = new Point(73, 118);
 			lblPoint.Name = "lblPoint";
 			lblPoint.Size = new Size(217, 230);
 			lblPoint.TabIndex = 17;
@@ -124,20 +116,21 @@
 			// label4
 			// 
 			label4.AutoSize = true;
-			label4.Font = new Font("Cooper Black", 20F, FontStyle.Regular, GraphicsUnit.Point);
+			label4.BackColor = Color.Orange;
+			label4.Font = new Font("Cooper Black", 26F, FontStyle.Regular, GraphicsUnit.Point);
 			label4.ForeColor = SystemColors.ButtonHighlight;
-			label4.Location = new Point(1403, 256);
+			label4.Location = new Point(14, 31);
 			label4.Name = "label4";
-			label4.Size = new Size(239, 46);
+			label4.Size = new Size(328, 60);
 			label4.TabIndex = 18;
-			label4.Text = "Your score";
+			label4.Text = "Your score:";
 			// 
 			// btnIdentifyAreas
 			// 
 			btnIdentifyAreas.BackColor = Color.RoyalBlue;
 			btnIdentifyAreas.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnIdentifyAreas.ForeColor = SystemColors.ButtonHighlight;
-			btnIdentifyAreas.Location = new Point(1538, 652);
+			btnIdentifyAreas.Location = new Point(1610, 808);
 			btnIdentifyAreas.Name = "btnIdentifyAreas";
 			btnIdentifyAreas.Size = new Size(169, 100);
 			btnIdentifyAreas.TabIndex = 21;
@@ -150,7 +143,7 @@
 			btnBack.BackColor = Color.RoyalBlue;
 			btnBack.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnBack.ForeColor = SystemColors.ButtonHighlight;
-			btnBack.Location = new Point(1289, 652);
+			btnBack.Location = new Point(1403, 808);
 			btnBack.Name = "btnBack";
 			btnBack.Size = new Size(169, 100);
 			btnBack.TabIndex = 20;
@@ -158,25 +151,73 @@
 			btnBack.UseVisualStyleBackColor = false;
 			btnBack.Click += btnBack_Click;
 			// 
+			// btnNewGame
+			// 
+			btnNewGame.BackColor = Color.SteelBlue;
+			btnNewGame.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnNewGame.ForeColor = SystemColors.ButtonFace;
+			btnNewGame.Location = new Point(1200, 808);
+			btnNewGame.Name = "btnNewGame";
+			btnNewGame.Size = new Size(169, 100);
+			btnNewGame.TabIndex = 22;
+			btnNewGame.Text = "New Game";
+			btnNewGame.UseVisualStyleBackColor = false;
+			btnNewGame.Click += btnNewGame_Click;
+			// 
+			// panel1
+			// 
+			panel1.BackColor = Color.Orange;
+			panel1.Controls.Add(lblPoint);
+			panel1.Controls.Add(label4);
+			panel1.Location = new Point(1330, 190);
+			panel1.Name = "panel1";
+			panel1.Size = new Size(345, 417);
+			panel1.TabIndex = 23;
+			// 
+			// panel2
+			// 
+			panel2.BackColor = Color.Orange;
+			panel2.Controls.Add(lblAnswers);
+			panel2.Controls.Add(dvgKey);
+			panel2.Controls.Add(dvgValues);
+			panel2.Controls.Add(btnMatch);
+			panel2.Location = new Point(131, 190);
+			panel2.Name = "panel2";
+			panel2.Size = new Size(901, 718);
+			panel2.TabIndex = 24;
+			// 
+			// lblAnswers
+			// 
+			lblAnswers.AutoSize = true;
+			lblAnswers.BackColor = Color.Orange;
+			lblAnswers.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point);
+			lblAnswers.ForeColor = SystemColors.ButtonHighlight;
+			lblAnswers.Location = new Point(556, 73);
+			lblAnswers.Name = "lblAnswers";
+			lblAnswers.Size = new Size(0, 55);
+			lblAnswers.TabIndex = 19;
+			// 
 			// IdentifyArea
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.PowderBlue;
 			ClientSize = new Size(1823, 933);
+			Controls.Add(btnNewGame);
 			Controls.Add(btnIdentifyAreas);
 			Controls.Add(btnBack);
-			Controls.Add(label4);
-			Controls.Add(lblPoint);
-			Controls.Add(btnCheckOrder);
-			Controls.Add(dataGridViewColumnB);
-			Controls.Add(dataGridViewColumnA);
 			Controls.Add(lblHeader);
+			Controls.Add(panel1);
+			Controls.Add(panel2);
 			Name = "IdentifyArea";
 			Text = "IdentifyArea";
 			Load += frmIDAreas_Load;
-			((System.ComponentModel.ISupportInitialize)dataGridViewColumnA).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridViewColumnB).EndInit();
+			((System.ComponentModel.ISupportInitialize)dvgKey).EndInit();
+			((System.ComponentModel.ISupportInitialize)dvgValues).EndInit();
+			panel1.ResumeLayout(false);
+			panel1.PerformLayout();
+			panel2.ResumeLayout(false);
+			panel2.PerformLayout();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -184,14 +225,17 @@
 		#endregion
 
 		private Label lblHeader;
-		private DataGridView dataGridViewColumnA;
-		private DataGridView dataGridViewColumnB;
-		private DataGridViewTextBoxColumn Column1;
-		private DataGridViewTextBoxColumn Column2;
-		private Button btnCheckOrder;
+		private DataGridView dvgKey;
+		private DataGridView dvgValues;
+		private Button btnMatch;
 		private Label lblPoint;
 		private Label label4;
 		private Button btnIdentifyAreas;
 		private Button btnBack;
+		private Button btnNewGame;
+		private System.Windows.Forms.Timer timer1;
+		private Panel panel1;
+		private Panel panel2;
+		private Label lblAnswers;
 	}
 }
