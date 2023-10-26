@@ -59,5 +59,15 @@ namespace PROG_7312_Task_1_V1.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap prog_task_2 {
+            get {
+                object obj = ResourceManager.GetObject("prog task 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

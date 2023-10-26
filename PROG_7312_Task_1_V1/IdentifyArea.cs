@@ -36,6 +36,9 @@ namespace PROG_7312_Task_1_V1
 
 		private void frmIDAreas_Load(object sender, EventArgs e)
 		{
+			lblWin.Visible = false;
+			pbxWin.Visible = false;
+
 			// Create a BindingList for each DataGridView
 			BindingList<KeyValuePair<string, string>> leftDataSource = new BindingList<KeyValuePair<string, string>>(deweyCategories.ToList());
 			BindingList<KeyValuePair<string, string>> rightDataSource = new BindingList<KeyValuePair<string, string>>(deweyCategories.ToList());
@@ -44,7 +47,7 @@ namespace PROG_7312_Task_1_V1
 			dgvManager = new DataGridViewManager(deweyCategories, dvgKey, dvgValues);
 
 			// Ensure matching items in DataGridViews
-			MatchingItemsChecker.EnsureMatchingItems(leftDataSource, rightDataSource);
+			MatchingItemsChecker.EnsureMatchingItems(leftDataSource, rightDataSource, deweyCategories);
 
 		}
 
@@ -61,7 +64,11 @@ namespace PROG_7312_Task_1_V1
 				dvgKey,
 				dvgValues,
 				lblPoint,
-				lblAnswers);
+				lblAnswers,
+				btnMatch,
+				pbxWin,
+				lblWin,
+				lblHeader);
 		}
 
 		private void btnBack_Click(object sender, EventArgs e)
@@ -82,8 +89,13 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnNewGame_Click(object sender, EventArgs e)
 		{
-
+			btnMatch.Visible = true;
 			lblPoint.Text = 0.ToString();
+			lblAnswers.Visible = true;
+			lblAnswers.Text = "";
+			pbxWin.Visible = false; 
+			lblWin.Visible = false;
+			lblHeader.Visible = true;
 
 			// Create a BindingList for each DataGridView
 			BindingList<KeyValuePair<string, string>> leftDataSource = new BindingList<KeyValuePair<string, string>>(deweyCategories.ToList());
@@ -93,7 +105,7 @@ namespace PROG_7312_Task_1_V1
 			dgvManager = new DataGridViewManager(deweyCategories, dvgKey, dvgValues);
 
 			// Ensure matching items in DataGridViews
-			MatchingItemsChecker.EnsureMatchingItems(leftDataSource, rightDataSource);
+			MatchingItemsChecker.EnsureMatchingItems(leftDataSource, rightDataSource, deweyCategories);
 		}
 	}
 }

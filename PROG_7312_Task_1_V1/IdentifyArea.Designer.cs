@@ -41,11 +41,14 @@
 			timer1 = new System.Windows.Forms.Timer(components);
 			panel1 = new Panel();
 			panel2 = new Panel();
+			lblWin = new Label();
+			pbxWin = new PictureBox();
 			lblAnswers = new Label();
 			((System.ComponentModel.ISupportInitialize)dvgKey).BeginInit();
 			((System.ComponentModel.ISupportInitialize)dvgValues).BeginInit();
 			panel1.SuspendLayout();
 			panel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pbxWin).BeginInit();
 			SuspendLayout();
 			// 
 			// lblHeader
@@ -128,11 +131,11 @@
 			// btnIdentifyAreas
 			// 
 			btnIdentifyAreas.BackColor = Color.RoyalBlue;
-			btnIdentifyAreas.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
+			btnIdentifyAreas.Font = new Font("Cooper Black", 8F, FontStyle.Italic, GraphicsUnit.Point);
 			btnIdentifyAreas.ForeColor = SystemColors.ButtonHighlight;
-			btnIdentifyAreas.Location = new Point(1610, 808);
+			btnIdentifyAreas.Location = new Point(1607, 847);
 			btnIdentifyAreas.Name = "btnIdentifyAreas";
-			btnIdentifyAreas.Size = new Size(169, 100);
+			btnIdentifyAreas.Size = new Size(172, 61);
 			btnIdentifyAreas.TabIndex = 21;
 			btnIdentifyAreas.Text = "Go to Replace Book Game";
 			btnIdentifyAreas.UseVisualStyleBackColor = false;
@@ -143,9 +146,9 @@
 			btnBack.BackColor = Color.RoyalBlue;
 			btnBack.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnBack.ForeColor = SystemColors.ButtonHighlight;
-			btnBack.Location = new Point(1403, 808);
+			btnBack.Location = new Point(1480, 847);
 			btnBack.Name = "btnBack";
-			btnBack.Size = new Size(169, 100);
+			btnBack.Size = new Size(103, 61);
 			btnBack.TabIndex = 20;
 			btnBack.Text = "Back";
 			btnBack.UseVisualStyleBackColor = false;
@@ -156,7 +159,7 @@
 			btnNewGame.BackColor = Color.SteelBlue;
 			btnNewGame.Font = new Font("Cooper Black", 12F, FontStyle.Italic, GraphicsUnit.Point);
 			btnNewGame.ForeColor = SystemColors.ButtonFace;
-			btnNewGame.Location = new Point(1200, 808);
+			btnNewGame.Location = new Point(1414, 630);
 			btnNewGame.Name = "btnNewGame";
 			btnNewGame.Size = new Size(169, 100);
 			btnNewGame.TabIndex = 22;
@@ -183,8 +186,30 @@
 			panel2.Controls.Add(btnMatch);
 			panel2.Location = new Point(131, 190);
 			panel2.Name = "panel2";
-			panel2.Size = new Size(901, 718);
+			panel2.Size = new Size(1127, 718);
 			panel2.TabIndex = 24;
+			// 
+			// lblWin
+			// 
+			lblWin.AutoSize = true;
+			lblWin.Font = new Font("Cooper Black", 36F, FontStyle.Regular, GraphicsUnit.Point);
+			lblWin.ForeColor = SystemColors.ButtonHighlight;
+			lblWin.ImageAlign = ContentAlignment.MiddleLeft;
+			lblWin.Location = new Point(733, 741);
+			lblWin.Name = "lblWin";
+			lblWin.Size = new Size(565, 82);
+			lblWin.TabIndex = 25;
+			lblWin.Text = "YOU WIN!!!!!!!!";
+			// 
+			// pbxWin
+			// 
+			pbxWin.Image = Properties.Resources.prog_task_2;
+			pbxWin.InitialImage = null;
+			pbxWin.Location = new Point(454, 141);
+			pbxWin.Name = "pbxWin";
+			pbxWin.Size = new Size(1032, 568);
+			pbxWin.TabIndex = 20;
+			pbxWin.TabStop = false;
 			// 
 			// lblAnswers
 			// 
@@ -203,7 +228,9 @@
 			AutoScaleMode = AutoScaleMode.Font;
 			BackColor = Color.PowderBlue;
 			ClientSize = new Size(1823, 933);
+			Controls.Add(lblWin);
 			Controls.Add(btnNewGame);
+			Controls.Add(pbxWin);
 			Controls.Add(btnIdentifyAreas);
 			Controls.Add(btnBack);
 			Controls.Add(lblHeader);
@@ -218,6 +245,7 @@
 			panel1.PerformLayout();
 			panel2.ResumeLayout(false);
 			panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)pbxWin).EndInit();
 			ResumeLayout(false);
 			PerformLayout();
 		}
@@ -237,5 +265,7 @@
 		private Panel panel1;
 		private Panel panel2;
 		private Label lblAnswers;
+		private PictureBox pbxWin;
+		private Label lblWin;
 	}
 }
