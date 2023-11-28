@@ -70,6 +70,7 @@
 			btnNumbers.TabIndex = 2;
 			btnNumbers.Text = "Find Call Number";
 			btnNumbers.UseVisualStyleBackColor = false;
+			btnNumbers.Click += btnNumbers_Click;
 			// 
 			// PROG7312_V1
 			// 

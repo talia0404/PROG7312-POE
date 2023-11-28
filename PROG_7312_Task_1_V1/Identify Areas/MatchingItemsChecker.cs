@@ -11,11 +11,16 @@ namespace PROG_7312_Task_1_V1
 		public static void EnsureMatchingItems(BindingList<KeyValuePair<string, string>> leftDataSource, BindingList<KeyValuePair<string, string>> rightDataSource,
 			 Dictionary<string, string> deweyCategories)
 		{
-			while (HasMatchingItems(leftDataSource, rightDataSource)==false)
-			{
+			if (HasMatchingItems(leftDataSource, rightDataSource)==true)
+			{      
 				// Repopulate dgvLeft and dvgValues
 				RepopulateDataGridViews(leftDataSource, rightDataSource, deweyCategories);
-			}
+			} 
+			  else
+
+			  {
+
+			  }	
 		}
 
 		public static bool HasMatchingItems(BindingList<KeyValuePair<string, string>> leftDataSource, BindingList<KeyValuePair<string, string>> rightDataSource)
@@ -61,12 +66,12 @@ namespace PROG_7312_Task_1_V1
 			
 
 			// Add matching items to both DataGridViews
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < matchingItems.Count; i++)
 			{
 				leftDataSource.Add(matchingItems[i]);
 			}
 
-			for (int i = 0; i < 8; i++)
+			for (int i = 0; i < matchingItems.Count; i++)
 			{
 				rightDataSource.Add(matchingItems[i]);
 			}
