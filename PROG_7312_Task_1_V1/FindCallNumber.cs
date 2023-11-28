@@ -12,10 +12,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PROG_7312_Task_1_V1
 {
-	public partial class FindCallNumber : Form
+	public partial class btnLevel1ARepop : Form
 	{
 
-		public FindCallNumber()
+		public btnLevel1ARepop()
 		{
 			InitializeComponent();
 			PopulateTreeView("C:\\VC 2023\\Semester 6\\PROG\\CallNumbers.txt");
@@ -24,8 +24,8 @@ namespace PROG_7312_Task_1_V1
 
 		private void FindCallNumber_Load(object sender, EventArgs e)
 		{
-			// Specify the file path
-			//string filePath = "C:\\VC 2023\\Semester 6\\PROG\\CallNumbers.txt";
+			RandomizeQuestionLevel1();
+			Level1Options();
 		}
 
 		private void PopulateTreeView(string filePath)
@@ -102,6 +102,87 @@ namespace PROG_7312_Task_1_V1
 
 		}
 
+		private void RandomizeQuestionLevel1()
+		{
+			List<string> thirdLevelDescriptions = new List<string>();
+
+			foreach (TreeNode grandparentNode in treeView.Nodes)
+			{
+				foreach (TreeNode parentNode in grandparentNode.Nodes)
+				{
+					foreach (TreeNode thirdLevelNode in parentNode.Nodes)
+					{
+						// Assuming the description is separated from the call number by a dot
+						string[] parts = thirdLevelNode.Text.Split(' ');
+						if (parts.Length > 1)
+						{
+							// Get the description
+							string description1 = parts[2].Trim();
+							thirdLevelDescriptions.Add(description1 + " ");
+						}
+					}
+				}
+			}
+
+			if (thirdLevelDescriptions.Count > 0)
+			{
+				Random random = new Random();
+				string selectedDescription = thirdLevelDescriptions[random.Next(thirdLevelDescriptions.Count)];
+				cmbLevel1Q.Items.Add(selectedDescription);
+			}
+			else
+			{
+				cmbLevel1Q.Text = "No third-level entries found.";
+			}
+		}
+
+		private void Level1Options()
+		{
+			List<string> topLevels = new List<string>();
+
+			foreach (TreeNode grandparentNode in treeView.Nodes)
+			{
+				// Include both call numbers and descriptions for top-level choices
+				topLevels.Add(grandparentNode.Text);
+			}
+
+			if (topLevels.Count >= 4)
+			{
+				Random random = new Random();
+
+				// Select one correct option
+				string correctOption = topLevels[random.Next(topLevels.Count)];
+				cmbLevel1A.Items.Add(correctOption);
+
+				// Select three random incorrect options
+				List<string> incorrectOptions = topLevels.Except(new[] { correctOption }).ToList();
+				for (int i = 0; i < 3; i++)
+				{
+					string incorrectOption = incorrectOptions[random.Next(incorrectOptions.Count)];
+					cmbLevel1A.Items.Add(incorrectOption);
+					incorrectOptions.Remove(incorrectOption);
+				}
+
+				// Sorting combobox
+				cmbLevel1A.Sorted = true;
+
+				// Randomising options
+				List<string> shuffledOptions = cmbLevel1A.Items.Cast<string>().OrderBy(x => random.Next()).ToList();
+				
+				//Clear combobox before adding items
+				cmbLevel1A.Items.Clear();
+				cmbLevel1A.Items.AddRange(shuffledOptions.ToArray());
+
+				// Default selection
+				cmbLevel1A.SelectedIndex = 0;
+			}
+			else
+			{
+				cmbLevel1A.Items.Add("Not enough top-level entries for multiple-choice options.");
+				cmbLevel1A.SelectedIndex = 0;
+			}
+		}
+
 		private void btnBack_Click(object sender, EventArgs e)
 		{
 			// Return to the main menu
@@ -110,6 +191,70 @@ namespace PROG_7312_Task_1_V1
 			this.Close();
 		}
 
+		private void btnQRepopLevel1_Click(object sender, EventArgs e)
+		{
+			cmbLevel1Q.Items.Clear();
+			RandomizeQuestionLevel1();
+		}
+
+
+		private void cmbLevel1A_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			/*
+			// Check for correct option
+			string selectedOption = cmbLevel1A.SelectedItem.ToString();
+
+			// Assuming the correct option is the first one (index 0)
+			string correctOption = cmbLevel1A.Items[0].ToString();
+
+			if (selectedOption == correctOption)
+			{
+				MessageBox.Show("Correct! You selected the right option.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
+			else
+			{
+				MessageBox.Show("Incorrect! Please try again.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			}*/
+
+			// Check if the value in cmbLevel1A corresponds with cmbLevel1Q
+			if (cmbLevel1Q.SelectedItem != null && cmbLevel1A.SelectedItem != null)
+			{
+				string selectedValueA = cmbLevel1A.SelectedItem.ToString();
+				string selectedValueQ = cmbLevel1Q.SelectedItem.ToString();
+
+				// Assuming the call numbers are separated from descriptions by a space
+				string callNumberA = GetFirstDigitOfCallNumber(selectedValueA);
+				string callNumberQ = GetFirstDigitOfCallNumber(selectedValueQ);
+
+				if (callNumberA == callNumberQ)
+				{
+					MessageBox.Show("Correct! The selected values match.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+				else
+				{
+					MessageBox.Show("Incorrect! The selected values do not match.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				}
+
+			}
+		}
+
+		private string GetFirstDigitOfCallNumber(string value)
+		{
+			// Extract the call number and return its first digit
+			string[] parts = value.Split(' ');
+			if (parts.Length > 0 && !string.IsNullOrEmpty(parts[0]))
+			{
+				return parts[0][0].ToString();
+			}
+			return null; // Return null if the call number is not found or is empty
+		}
+
+		private void btnRepopL1A_Click(object sender, EventArgs e)
+		{
+			cmbLevel1A.Items.Clear();
+			Level1Options();
+		}
+		
 	}
 
 }
