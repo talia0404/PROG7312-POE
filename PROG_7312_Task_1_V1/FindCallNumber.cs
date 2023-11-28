@@ -229,8 +229,12 @@ namespace PROG_7312_Task_1_V1
 				MessageBox.Show("Incorrect! Please try again.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 				score--;
 				lblScore.Text = score.ToString();
+				lblLevel2.Visible = true;
+				cmbLevel2A.Visible = true;
+				btnRepopLevel2A.Visible = true;
 			}
 		}
+
 
 		/*// Check if the value in cmbLevel1A corresponds with cmbLevel1Q
 		if (cmbLevel1Q.SelectedItem != null && cmbLevel1A.SelectedItem != null)
@@ -327,6 +331,29 @@ namespace PROG_7312_Task_1_V1
 		{
 			cmbLevel2A.Items.Clear();
 			Level2Options();
+		}
+
+		private void btnCheck2_Click(object sender, EventArgs e)
+		{
+			// Check for correct option
+			string selectedOption = cmbLevel2A.SelectedItem.ToString();
+
+			// Assuming the correct option is the first one (index 0)
+			string correctOption = cmbLevel2A.Items[0].ToString();
+
+			if (selectedOption == correctOption)
+			{
+				MessageBox.Show("Correct! You selected the right option.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				// Increment the score
+				score++;
+				lblScore.Text = score.ToString();
+			}
+			else
+			{
+				MessageBox.Show("Incorrect! Please try again.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				score--;
+				lblScore.Text = score.ToString();
+			}
 		}
 	}
 

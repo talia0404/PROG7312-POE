@@ -136,6 +136,7 @@
 			btnCheck2.TabIndex = 29;
 			btnCheck2.Text = "Check";
 			btnCheck2.UseVisualStyleBackColor = false;
+			btnCheck2.Click += btnCheck2_Click;
 			// 
 			// btnCheck1
 			// 
