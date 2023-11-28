@@ -11,21 +11,21 @@ namespace PROG_7312_Task_1_V1
 		public static void EnsureMatchingItems(BindingList<KeyValuePair<string, string>> leftDataSource, BindingList<KeyValuePair<string, string>> rightDataSource,
 			 Dictionary<string, string> deweyCategories)
 		{
-			if (HasMatchingItems(leftDataSource, rightDataSource)==true)
-			{      
+			if (HasMatchingItems(leftDataSource, rightDataSource) == true)
+			{
 				// Repopulate dgvLeft and dvgValues
 				RepopulateDataGridViews(leftDataSource, rightDataSource, deweyCategories);
-			} 
-			  else
+			}
+			else
 
-			  {
+			{
 
-			  }	
+			}
 		}
 
 		public static bool HasMatchingItems(BindingList<KeyValuePair<string, string>> leftDataSource, BindingList<KeyValuePair<string, string>> rightDataSource)
 		{
-			
+
 			if (leftDataSource.Count != rightDataSource.Count)
 			{
 				return false; // If the counts are not the same, there cannot be a full match.
@@ -42,8 +42,8 @@ namespace PROG_7312_Task_1_V1
 			return true; // All left items have matching items in rightDataSource.
 		}
 
-		private static void RepopulateDataGridViews(BindingList<KeyValuePair<string, string>> leftDataSource, 
-			BindingList<KeyValuePair<string, string>> rightDataSource, 
+		private static void RepopulateDataGridViews(BindingList<KeyValuePair<string, string>> leftDataSource,
+			BindingList<KeyValuePair<string, string>> rightDataSource,
 			Dictionary<string, string> deweyCategories)
 		{
 			leftDataSource.Clear();
@@ -63,20 +63,23 @@ namespace PROG_7312_Task_1_V1
 			// Shuffle the matching items
 			ShuffleList.ShuffleListItems(leftDataSource);
 
-			
-
-			// Add matching items to both DataGridViews
-			for (int i = 0; i < matchingItems.Count; i++)
+			// Alternate between adding items to left and right data sources
+			bool addToLeft = true;
+			foreach (var matchingItem in matchingItems)
 			{
-				leftDataSource.Add(matchingItems[i]);
-			}
+				if (addToLeft)
+				{
+					leftDataSource.Add(matchingItem);
+				}
+				else
+				{
+					rightDataSource.Add(matchingItem);
+				}
 
-			for (int i = 0; i < matchingItems.Count; i++)
-			{
-				rightDataSource.Add(matchingItems[i]);
+				// Toggle between adding to left and right for the next item
+				addToLeft = !addToLeft;
 			}
 		}
 
 	}
-
-	}
+}

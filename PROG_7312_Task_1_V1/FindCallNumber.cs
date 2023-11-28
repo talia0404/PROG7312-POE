@@ -12,10 +12,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PROG_7312_Task_1_V1
 {
-	public partial class btnLevel1ARepop : Form
+	public partial class FindCallNumbers : Form
 	{
 
-		public btnLevel1ARepop()
+		public FindCallNumbers()
 		{
 			InitializeComponent();
 			PopulateTreeView("C:\\VC 2023\\Semester 6\\PROG\\CallNumbers.txt");
@@ -29,6 +29,13 @@ namespace PROG_7312_Task_1_V1
 			Level2Options();
 		}
 
+		/*
+		 * Website Name: StackOverflow
+		 * Website URL:https://stackoverflow.com/questions/40218398/c-sharp-wpf-create-treeview-from-text-file
+		 * Visited: 20 November 2023
+		  */
+
+		//Populate tree from textfile
 		private void PopulateTreeView(string filePath)
 		{
 			if (File.Exists(filePath))
@@ -103,6 +110,12 @@ namespace PROG_7312_Task_1_V1
 
 		}
 
+
+		/*
+		 * Website Name: StackOverflow
+		 * Website URL: https://stackoverflow.com/questions/25319446/populating-a-combo-box-with-tree-view-data
+		 * Visited: 20 November 2023
+		  */
 		private void RandomizeQuestionLevel1()
 		{
 			List<string> thirdLevelDescriptions = new List<string>();
@@ -138,6 +151,15 @@ namespace PROG_7312_Task_1_V1
 			}
 		}
 
+		/*
+		 * Website Name: Windows
+		 * URL: https://learn.microsoft.com/en-us/dotnet/desktop/winforms/controls/sort-the-contents-of-a-wf-combobox-listbox-or-checkedlistbox-control?view=netframeworkdesktop-4.8		 * Visited: 20 November 2023
+		  */
+		/*
+		 * Website Name: StackOverflow
+		 * Website URL:https://stackoverflow.com/questions/66893/tree-data-structure-in-c-sharp
+		 * Visited: 20 November 2023
+		  */
 		private void Level1Options()
 		{
 			List<string> topLevels = new List<string>();
@@ -206,23 +228,24 @@ namespace PROG_7312_Task_1_V1
 
 		}
 
+		
 		private void btnCheck1_Click(object sender, EventArgs e)
 		{
 			// Check for correct option
 			string selectedOption = cmbLevel1A.SelectedItem.ToString();
 
-			// Assuming the correct option is the first one (index 0)
 			string correctOption = cmbLevel1A.Items[0].ToString();
 
 			if (selectedOption == correctOption)
 			{
-				MessageBox.Show("Correct! You selected the right option.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Correct! You earned a point!", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				// Increment the score
 				score++;
 				lblScore.Text = score.ToString();
 				lblLevel2.Visible = true;
 				cmbLevel2A.Visible = true;
 				btnRepopLevel2A.Visible = true;
+				btnCheck2.Visible = true;
 			}
 			else
 			{
@@ -232,17 +255,18 @@ namespace PROG_7312_Task_1_V1
 				lblLevel2.Visible = true;
 				cmbLevel2A.Visible = true;
 				btnRepopLevel2A.Visible = true;
+				btnCheck2.Visible = true;
+
 			}
 		}
 
 
-		/*// Check if the value in cmbLevel1A corresponds with cmbLevel1Q
+		/*// Check if the values correspond
 		if (cmbLevel1Q.SelectedItem != null && cmbLevel1A.SelectedItem != null)
 		{
 			string selectedValueA = cmbLevel1A.SelectedItem.ToString();
 			string selectedValueQ = cmbLevel1Q.SelectedItem.ToString();
 
-			// Assuming the call numbers are separated from descriptions by a space
 			string callNumberA = GetFirstDigitOfCallNumber(selectedValueA);
 			string callNumberQ = GetFirstDigitOfCallNumber(selectedValueQ);
 
@@ -273,6 +297,7 @@ namespace PROG_7312_Task_1_V1
 			lblLevel2.Visible = false;
 			cmbLevel2A.Visible = false;
 			btnRepopLevel2A.Visible = false;
+			btnCheck2.Visible = false;
 		}
 
 		private void Level2Options()
@@ -301,7 +326,7 @@ namespace PROG_7312_Task_1_V1
 				cmbLevel2A.Items.Clear();
 				cmbLevel2A.Items.AddRange(shuffledOptions.ToArray());
 
-				// Select the first option by default
+				//Default Selection
 				cmbLevel2A.SelectedIndex = 0;
 			}
 			else
@@ -319,7 +344,7 @@ namespace PROG_7312_Task_1_V1
 			{
 				foreach (TreeNode parentNode in grandparentNode.Nodes)
 				{
-					// Assuming the Level 2 option has both call numbers and descriptions
+					//Retrieving level 2 options
 					level2Options.Add(parentNode.Text);
 				}
 			}
@@ -338,12 +363,11 @@ namespace PROG_7312_Task_1_V1
 			// Check for correct option
 			string selectedOption = cmbLevel2A.SelectedItem.ToString();
 
-			// Assuming the correct option is the first one (index 0)
 			string correctOption = cmbLevel2A.Items[0].ToString();
 
 			if (selectedOption == correctOption)
 			{
-				MessageBox.Show("Correct! You selected the right option.", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				MessageBox.Show("Correct! You earned a point!", "Result", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				// Increment the score
 				score++;
 				lblScore.Text = score.ToString();

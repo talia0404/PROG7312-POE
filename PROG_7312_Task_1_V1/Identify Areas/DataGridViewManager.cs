@@ -32,6 +32,27 @@ namespace PROG_7312_Task_1_V1
 			rightDataGridView.Columns["Value"].Visible = true;
 		}
 
+		public void DataGridViewManager2(Dictionary<string, string> data, DataGridView leftDataGridView, DataGridView rightDataGridView)
+		{
+			LeftDataSource = new BindingList<KeyValuePair<string, string>>(data.ToList());
+			RightDataSource = new BindingList<KeyValuePair<string, string>>(data.ToList());
+
+			ShuffleListItems(LeftDataSource);
+			ShuffleListItems(RightDataSource);
+
+			LeftDataSource = new BindingList<KeyValuePair<string, string>>(LeftDataSource.Take(4).ToList());
+			RightDataSource = new BindingList<KeyValuePair<string, string>>(RightDataSource.Take(7).ToList());
+
+			leftDataGridView.DataSource = RightDataSource;
+			rightDataGridView.DataSource = LeftDataSource;
+
+			// Set the visibility of columns
+			leftDataGridView.Columns["Key"].Visible = true;
+			leftDataGridView.Columns["Value"].Visible = false;
+			rightDataGridView.Columns["Key"].Visible = false;
+			rightDataGridView.Columns["Value"].Visible = true;
+		}
+
 		private void ShuffleListItems<T>(BindingList<T> list)
 		{
 			Random rand = new Random();

@@ -1,6 +1,6 @@
 ﻿namespace PROG_7312_Task_1_V1
 {
-	partial class btnLevel1ARepop
+	partial class FindCallNumbers
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -80,7 +80,7 @@
 			cmbLevel1Q.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
 			cmbLevel1Q.ForeColor = Color.Ivory;
 			cmbLevel1Q.FormattingEnabled = true;
-			cmbLevel1Q.Location = new Point(39, 172);
+			cmbLevel1Q.Location = new Point(39, 155);
 			cmbLevel1Q.Name = "cmbLevel1Q";
 			cmbLevel1Q.Size = new Size(391, 36);
 			cmbLevel1Q.TabIndex = 1;
@@ -136,6 +136,7 @@
 			btnCheck2.TabIndex = 29;
 			btnCheck2.Text = "Check";
 			btnCheck2.UseVisualStyleBackColor = false;
+			btnCheck2.Visible = false;
 			btnCheck2.Click += btnCheck2_Click;
 			// 
 			// btnCheck1
@@ -269,7 +270,7 @@
 			label2.TabIndex = 28;
 			label2.Text = "Score:";
 			// 
-			// btnLevel1ARepop
+			// FindCallNumbers
 			// 
 			AutoScaleDimensions = new SizeF(10F, 25F);
 			AutoScaleMode = AutoScaleMode.Font;
@@ -281,7 +282,7 @@
 			Controls.Add(btnBack);
 			Controls.Add(pnlAnswer);
 			Controls.Add(pnlQuestion);
-			Name = "btnLevel1ARepop";
+			Name = "FindCallNumbers";
 			Text = "FindCallNumber";
 			Load += FindCallNumber_Load;
 			pnlQuestion.ResumeLayout(false);

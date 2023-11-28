@@ -34,7 +34,7 @@ namespace PROG_7312_Task_1_V1
 
 		private void btnNumbers_Click(object sender, EventArgs e)
 		{
-			btnLevel1ARepop form4 = new btnLevel1ARepop();
+			FindCallNumbers form4 = new FindCallNumbers();
 
 			form4.Show();
 
